@@ -68,3 +68,5 @@ benchmarking use JMH.
 | miss, odd target in even array | 1,000,000 | ~591 |
 | hit, leftmost of duplicates | 1,000,000 | ~687 |
 | hit, small array | 100 | ~102 |
+
+See [BENCHMARK.md](BENCHMARK.md) for full methodology, machine details, scaling analysis and cross-language comparison.
