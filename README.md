@@ -53,3 +53,18 @@ count-of-elements-strictly-less-than-target oracle.
 
 Tests also run on every push and pull request via GitHub Actions (see
 [.github/workflows/test.yml](.github/workflows/test.yml)).
+
+## Benchmarks
+
+`clojure -M bench/benchmark.clj` (OpenJDK 25 / Temurin, best-of-5 after
+warmup; 1,024 seeded targets cycled, 51,200 ops per rep). Example
+measurement on the author's machine — numbers are machine-specific, re-run
+to reproduce. JVM warmup strongly affects short runs; for rigorous JVM
+benchmarking use JMH.
+
+| Scenario | n | ns/op |
+|---|---|---|
+| hit, unique elements | 1,000,000 | ~573 |
+| miss, odd target in even array | 1,000,000 | ~591 |
+| hit, leftmost of duplicates | 1,000,000 | ~687 |
+| hit, small array | 100 | ~102 |
